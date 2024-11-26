@@ -1,0 +1,483 @@
+<html>
+ <head>
+  <title>
+   MasterBullet
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   @keyframes progress {
+    from {
+     width: 0%;
+    }
+    to {
+     width: 100%;
+    }
+   }
+   .progress-bar {
+    animation: progress 5m linear forwards;
+   }
+  </style>
+ </head>
+ <body class="bg-gray-900 text-white font-sans">
+  <div class="flex">
+   <!-- Sidebar -->
+   <div class="w-1/5 bg-black h-screen p-4">
+    <div class="text-center mb-6">
+     <h1 class="text-2xl font-bold">
+      MasterBullet 3
+     </h1>
+    </div>
+    <ul class="space-y-4">
+     <li class="flex items-center space-x-3 hover:bg-gray-800 p-2 rounded">
+      <i class="fas fa-home">
+      </i>
+      <span>
+       Home
+      </span>
+     </li>
+     <li class="flex items-center space-x-3 hover:bg-gray-800 p-2 rounded">
+      <i class="fas fa-briefcase">
+      </i>
+      <span>
+       Jobs
+      </span>
+     </li>
+     <li class="flex items-center space-x-3 hover:bg-gray-800 p-2 rounded">
+      <i class="fas fa-desktop">
+      </i>
+      <span>
+       Monitor
+      </span>
+     </li>
+     <li class="flex items-center space-x-3 hover:bg-gray-800 p-2 rounded">
+      <i class="fas fa-network-wired">
+      </i>
+      <span>
+       Proxies
+      </span>
+     </li>
+     <li class="flex items-center space-x-3 hover:bg-gray-800 p-2 rounded">
+      <i class="fas fa-file-alt">
+      </i>
+      <span>
+       Wordlists
+      </span>
+     </li>
+     <li class="flex items-center space-x-3 hover:bg-gray-800 p-2 rounded">
+      <i class="fas fa-bullseye">
+      </i>
+      <span>
+       Hits
+      </span>
+     </li>
+     <li class="flex items-center space-x-3 hover:bg-gray-800 p-2 rounded">
+      <i class="fas fa-cogs">
+      </i>
+      <span>
+       Configs
+      </span>
+     </li>
+     <li class="flex items-center space-x-3 hover:bg-gray-800 p-2 rounded">
+      <i class="fas fa-database">
+      </i>
+      <span>
+       Metadata
+      </span>
+     </li>
+     <li class="flex items-center space-x-3 hover:bg-gray-800 p-2 rounded">
+      <i class="fas fa-book">
+      </i>
+      <span>
+       Readme
+      </span>
+     </li>
+     <li class="flex items-center space-x-3 hover:bg-gray-800 p-2 rounded">
+      <i class="fas fa-layer-group">
+      </i>
+      <span>
+       Stacker
+      </span>
+     </li>
+     <li class="flex items-center space-x-3 hover:bg-gray-800 p-2 rounded">
+      <i class="fas fa-code">
+      </i>
+      <span>
+       LoliCode
+      </span>
+     </li>
+     <li class="flex items-center space-x-3 hover:bg-gray-800 p-2 rounded">
+      <i class="fas fa-cog">
+      </i>
+      <span>
+       Settings
+      </span>
+     </li>
+    </ul>
+   </div>
+   <!-- Main Content -->
+   <div class="w-4/5 p-4">
+    <div class="flex justify-between mb-4">
+     <div>
+      <h2 class="text-xl font-bold">
+       Job options
+      </h2>
+      <div class="flex items-center space-x-2 mt-2">
+       <div>
+        <p>
+         Config: Risk by Risk
+        </p>
+        <p>
+         Data pool: Wordlist (wordlist)
+        </p>
+        <p>
+         Proxy mode: On
+        </p>
+        <p>
+         Proxy sources:
+         <a class="text-blue-500" href="#">
+          Group (Proxies)
+         </a>
+        </p>
+        <p>
+         Hit outputs:
+         <a class="text-blue-500" href="#">
+          Database
+         </a>
+        </p>
+        <p>
+         Skip: 0
+        </p>
+        <p>
+         Bots: 2
+        </p>
+       </div>
+      </div>
+     </div>
+     <div>
+      <h2 class="text-xl font-bold">
+       Data stats
+      </h2>
+      <div class="mt-2">
+       <p>
+        Tested: 1
+       </p>
+       <p class="text-green-500">
+        Hits: 0
+       </p>
+       <p class="text-yellow-500">
+        Custom: 0
+       </p>
+       <p class="text-red-500">
+        Fails: 0
+       </p>
+       <p>
+        Invalid: 0
+       </p>
+       <p>
+        Retried: 0
+       </p>
+       <p>
+        Banned: 0
+       </p>
+       <p>
+        To check: 1
+       </p>
+       <p>
+        Errors: 0
+       </p>
+      </div>
+     </div>
+     <div>
+      <h2 class="text-xl font-bold">
+       Proxy stats
+      </h2>
+      <div class="mt-2">
+       <p>
+        Total: 29
+       </p>
+       <p class="text-green-500">
+        Alive: 29
+       </p>
+       <p class="text-red-500">
+        Bad: 0
+       </p>
+       <p>
+        Banned: 0
+       </p>
+      </div>
+     </div>
+     <div>
+      <h2 class="text-xl font-bold">
+       Other stats
+      </h2>
+      <div class="mt-2">
+       <p>
+        CPM: 1
+       </p>
+       <p>
+        Captcha credit: 0
+       </p>
+       <p>
+        Elapsed: 0 day(s) 00:00:12
+       </p>
+       <p>
+        Remaining: 0 day(s) 00:03:47
+       </p>
+       <p>
+        Progress: 1 / 5 (20.00%)
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="flex items-center space-x-2 mb-4">
+     <button class="bg-green-500 text-black px-4 py-2 rounded" onclick="window.location.href='https://example.com'">
+      Go to DataBase
+     </button>
+     <button class="bg-red-500 text-black px-4 py-2 rounded" onclick="window.location.href='https://github.com/masterbullet/database'">
+      Grabbing Database
+     </button>
+     <div class="flex items-center justify-center">
+      <img alt="Loading" class="w-12 h-12" src="https://example.com/loading.gif"/>
+     </div>
+    </div>
+    <div class="bg-gray-800 p-4 rounded mb-4">
+     <div class="grid grid-cols-4 gap-4">
+      <div>
+       <h3 class="font-bold">
+        Name
+       </h3>
+       <p>
+        PrimeVideo
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Proxies
+       </h3>
+       <p>
+        29
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Status
+       </h3>
+       <p>
+        Running
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Data
+       </h3>
+       <p>
+        Backing up
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="bg-gray-800 p-4 rounded mb-4">
+     <div class="grid grid-cols-4 gap-4">
+      <div>
+       <h3 class="font-bold">
+        Name
+       </h3>
+       <p>
+        Netflix
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Proxies
+       </h3>
+       <p>
+        29
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Status
+       </h3>
+       <p>
+        Failed
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Data
+       </h3>
+       <p>
+        Backing up
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="bg-gray-800 p-4 rounded mb-4">
+     <div class="grid grid-cols-4 gap-4">
+      <div>
+       <h3 class="font-bold">
+        Name
+       </h3>
+       <p>
+        Spotify
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Proxies
+       </h3>
+       <p>
+        29
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Status
+       </h3>
+       <p>
+        Running
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Data
+       </h3>
+       <p>
+        Backing up
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="bg-gray-800 p-4 rounded mb-4">
+     <div class="grid grid-cols-4 gap-4">
+      <div>
+       <h3 class="font-bold">
+        Name
+       </h3>
+       <p>
+        Crunchyroll
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Proxies
+       </h3>
+       <p>
+        29
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Status
+       </h3>
+       <p>
+        Running
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Data
+       </h3>
+       <p>
+        Backing up
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="bg-gray-800 p-4 rounded mb-4">
+     <div class="grid grid-cols-4 gap-4">
+      <div>
+       <h3 class="font-bold">
+        Name
+       </h3>
+       <p>
+        Discord Nitro
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Proxies
+       </h3>
+       <p>
+        29
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Status
+       </h3>
+       <p>
+        Running
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Data
+       </h3>
+       <p>
+        Backing up
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="bg-gray-800 p-4 rounded mb-4">
+     <div class="grid grid-cols-4 gap-4">
+      <div>
+       <h3 class="font-bold">
+        Name
+       </h3>
+       <p>
+        VPNS By @MrPlus
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Proxies
+       </h3>
+       <p>
+        29
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Status
+       </h3>
+       <p>
+        Running
+       </p>
+      </div>
+      <div>
+       <h3 class="font-bold">
+        Data
+       </h3>
+       <p>
+        Backing up
+       </p>
+      </div>
+     </div>
+    </div>
+    <div class="flex space-x-2 mb-4 mt-4">
+     <button class="bg-blue-700 text-white px-4 py-2 rounded">
+      Copy data
+     </button>
+     <button class="bg-blue-700 text-white px-4 py-2 rounded">
+      Copy data + capture
+     </button>
+     <button class="bg-blue-700 text-white px-4 py-2 rounded">
+      Send to debugger
+     </button>
+     <button class="bg-blue-700 text-white px-4 py-2 rounded">
+      Show full log
+     </button>
+     <select class="bg-gray-800 text-white px-4 py-2 rounded">
+      <option>
+       Hits
+      </option>
+     </select>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
