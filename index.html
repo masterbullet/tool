@@ -3,25 +3,58 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script>
+        let currentEditingFile = '';
+        let fileContents = {
+            'test.txt': 'This is the content of test.txt',
+            'new_hit.txt': 'New Hit Content'
+        };
+
         function updateWorkingStatus() {
             document.getElementById('workingStatus').classList.add('text-green-500');
         }
 
         function createNewHitFile() {
-            const element = document.createElement('a');
-            const file = new Blob(['New Hit Content'], { type: 'text/plain' });
-            element.href = URL.createObjectURL(file);
-            element.download = 'new_hit.txt';
-            document.body.appendChild(element);
-            element.click();
-            updateFileList('new_hit.txt');
+            const fileName = 'new_hit.txt';
+            const fileContent = 'New Hit Content';
+            fileContents[fileName] = fileContent;
+            updateFileList(fileName);
         }
 
         function updateFileList(fileName) {
             const fileList = document.getElementById('fileList');
             const listItem = document.createElement('li');
             listItem.textContent = fileName;
+            listItem.classList.add('cursor-pointer');
+            listItem.ondblclick = function() {
+                renameFile(listItem);
+            };
+            listItem.onclick = function() {
+                editFileContent(fileName);
+            };
             fileList.appendChild(listItem);
+        }
+
+        function editFileContent(fileName) {
+            currentEditingFile = fileName;
+            const fileContent = fileContents[fileName] || ''; // Get the content of the file
+            document.getElementById('fileEditor').value = fileContent;
+        }
+
+        function renameFile(listItem) {
+            const currentName = listItem.textContent;
+            const newName = prompt("Enter new name for the file:", currentName);
+            if (newName && newName.trim() !== "") {
+                listItem.textContent = newName.trim();
+                fileContents[newName.trim()] = fileContents[currentName];
+                delete fileContents[currentName];
+                currentEditingFile = newName.trim();
+            }
+        }
+
+        function saveFileContent() {
+            const content = document.getElementById('fileEditor').value;
+            fileContents[currentEditingFile] = content;
+            alert(`Content of ${currentEditingFile} saved!`);
         }
     </script>
 </head>
@@ -44,7 +77,8 @@
             <div class="text-lg font-semibold mt-6 mb-4">Files</div>
             <div class="bg-gray-700 p-4 rounded">
                 <ul id="fileList" class="space-y-2">
-                    <li>test.txt</li>
+                    <li class="cursor-pointer" ondblclick="renameFile(this)" onclick="editFileContent('test.txt')">test.txt</li>
+                    <!-- List of files will be dynamically added here -->
                 </ul>
             </div>
         </div>
@@ -178,6 +212,11 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="bg-gray-800 p-4 rounded mt-4">
+                <div class="text-lg font-semibold mb-4">File Editor</div>
+                <textarea id="fileEditor" class="w-full bg-gray-700 text-white p-2 rounded" rows="10" placeholder="Edit your file content here..."></textarea>
+                <button class="bg-green-500 text-white px-4 py-2 rounded mt-2" onclick="saveFileContent()">Save</button>
             </div>
         </div>
     </div>
