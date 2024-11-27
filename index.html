@@ -9,15 +9,39 @@
             'new_hit.txt': 'New Hit Content'
         };
 
+        const GITHUB_TOKEN = 'YOUR_GITHUB_PERSONAL_ACCESS_TOKEN';
+        const REPO_OWNER = 'YOUR_GITHUB_USERNAME';
+        const REPO_NAME = 'YOUR_REPOSITORY_NAME';
+
         function updateWorkingStatus() {
             document.getElementById('workingStatus').classList.add('text-green-500');
         }
 
-        function createNewHitFile() {
+        async function createNewHitFile() {
             const fileName = 'new_hit.txt';
             const fileContent = 'New Hit Content';
             fileContents[fileName] = fileContent;
             updateFileList(fileName);
+
+            const base64Content = btoa(fileContent);
+
+            const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${fileName}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${GITHUB_TOKEN}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: `Create ${fileName}`,
+                    content: base64Content
+                })
+            });
+
+            if (response.ok) {
+                alert(`${fileName} created successfully in the GitHub repository!`);
+            } else {
+                alert(`Failed to create ${fileName} in the GitHub repository.`);
+            }
         }
 
         function updateFileList(fileName) {
@@ -70,17 +94,9 @@
                 <li class="text-yellow-500">Total Hits = No Data</li>
                 <li class="text-blue-300">Retried = 5%</li>
             </ul>
-            <div class="flex items-center justify-between mt-6 mb-4">
-                <div class="text-lg font-semibold">Manage</div>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="createNewHitFile()">New Hit</button>
-            </div>
-            <div class="text-lg font-semibold mt-6 mb-4">Files</div>
-            <div class="bg-gray-700 p-4 rounded">
-                <ul id="fileList" class="space-y-2">
-                    <li class="cursor-pointer" ondblclick="renameFile(this)" onclick="editFileContent('test.txt')">test.txt</li>
-                    <!-- List of files will be dynamically added here -->
-                </ul>
-            </div>
+            <button class="bg-blue-500 text-white px-4 py-2 rounded mt-6 mb-4" onclick="window.location.href='https://your-database-url.com'">Database</button>
+            <ul id="fileList" class="space-y-2">
+            </ul>
         </div>
         <!-- Main Content -->
         <div class="w-4/5 p-4">
@@ -212,11 +228,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="bg-gray-800 p-4 rounded mt-4">
-                <div class="text-lg font-semibold mb-4">File Editor</div>
-                <textarea id="fileEditor" class="w-full bg-gray-700 text-white p-2 rounded" rows="10" placeholder="Edit your file content here..."></textarea>
-                <button class="bg-green-500 text-white px-4 py-2 rounded mt-2" onclick="saveFileContent()">Save</button>
             </div>
         </div>
     </div>
