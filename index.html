@@ -6,13 +6,30 @@
         function updateWorkingStatus() {
             document.getElementById('workingStatus').classList.add('text-green-500');
         }
+
+        function createNewHitFile() {
+            const element = document.createElement('a');
+            const file = new Blob(['New Hit Content'], { type: 'text/plain' });
+            element.href = URL.createObjectURL(file);
+            element.download = 'new_hit.txt';
+            document.body.appendChild(element);
+            element.click();
+            updateFileList('new_hit.txt');
+        }
+
+        function updateFileList(fileName) {
+            const fileList = document.getElementById('fileList');
+            const listItem = document.createElement('li');
+            listItem.textContent = fileName;
+            fileList.appendChild(listItem);
+        }
     </script>
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <div class="flex">
         <!-- Sidebar -->
         <div class="w-1/5 bg-gray-800 h-screen p-4">
-            <div class="text-2xl font-bold mb-6">OPEN BULLET</div>
+            <div class="text-2xl font-bold mb-6">MasterBullet 2</div>
             <div class="text-lg font-semibold mb-4">Total Data</div>
             <ul class="space-y-2">
                 <li id="workingStatus" class="text-green-500">Working = 90%</li>
@@ -20,7 +37,16 @@
                 <li class="text-yellow-500">Total Hits = No Data</li>
                 <li class="text-blue-300">Retried = 5%</li>
             </ul>
-            <div class="text-lg font-semibold mt-6 mb-4">Manage</div>
+            <div class="flex items-center justify-between mt-6 mb-4">
+                <div class="text-lg font-semibold">Manage</div>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="createNewHitFile()">New Hit</button>
+            </div>
+            <div class="text-lg font-semibold mt-6 mb-4">Files</div>
+            <div class="bg-gray-700 p-4 rounded">
+                <ul id="fileList" class="space-y-2">
+                    <li>test.txt</li>
+                </ul>
+            </div>
         </div>
         <!-- Main Content -->
         <div class="w-4/5 p-4">
@@ -94,6 +120,60 @@
                             <td class="p-2">All in One</td>
                             <td class="p-2">******</td>
                             <td class="p-2">Pass</td>
+                            <td class="p-2">PremiumStockers</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2">Hulu</td>
+                            <td class="p-2">******</td>
+                            <td class="p-2">Running</td>
+                            <td class="p-2">PremiumStockers</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2">Disney+</td>
+                            <td class="p-2">******</td>
+                            <td class="p-2">Failed</td>
+                            <td class="p-2">PremiumStockers</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2">HBO Max</td>
+                            <td class="p-2">******</td>
+                            <td class="p-2">Running</td>
+                            <td class="p-2">PremiumStockers</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2">Paramount+</td>
+                            <td class="p-2">******</td>
+                            <td class="p-2">Pass</td>
+                            <td class="p-2">PremiumStockers</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2">Peacock</td>
+                            <td class="p-2">******</td>
+                            <td class="p-2">Running</td>
+                            <td class="p-2">PremiumStockers</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2">Apple TV+</td>
+                            <td class="p-2">******</td>
+                            <td class="p-2">Failed</td>
+                            <td class="p-2">PremiumStockers</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2">Showtime</td>
+                            <td class="p-2">******</td>
+                            <td class="p-2">Running</td>
+                            <td class="p-2">PremiumStockers</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2">Starz</td>
+                            <td class="p-2">******</td>
+                            <td class="p-2">Pass</td>
+                            <td class="p-2">PremiumStockers</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2">Discovery+</td>
+                            <td class="p-2">******</td>
+                            <td class="p-2">Running</td>
                             <td class="p-2">PremiumStockers</td>
                         </tr>
                     </tbody>
